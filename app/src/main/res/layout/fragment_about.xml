@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/about"
+            android:id="@+id/imgAbout"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="About"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:textSize="24sp"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:lineSpacingMultiplier="1.3"
+            android:letterSpacing="0.05"
+            android:id="@+id/txtContent"
+            android:fontFamily="@font/poppins"
+            android:textSize="15sp"
+            android:text="Vision, Mission, and Values: SIMURGH is founded on the principle of progressive innovation – a vision to elevate human potential with AI, a mission to secure the digital ecosystem, and a set of values committed to ethical practice, community enhancement, and pioneering leadership. Our philosophy is grounded in creating a future where technology serves the greater good, enriches lives, and safeguards assets.
+
+Blockchain and Web3: Ensuring trust in digital transactions with immutable AI-powered security.
+
+Cyber Security: Anticipating cyber threats with AI to protect our interconnected world.
+
+Internet of Things (IoT): Integrating AI to create intelligent, efficient, and responsive IoT networks.
+
+Extended Reality (XR) and Metaverse: Redefining reality, offering AI-powered immersive experiences.
+
+Philanthropy and Humanitarian Projects: Utilizing AI to orchestrate collaborative efforts for global challenges.
+
+Digital Content Production: Creating AI-enhanced digital and spatial content for education and entertainment, specializing in digital media like podcasts, TV shows, and more across various tech fields."/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</ScrollView>

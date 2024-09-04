@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "622708663283",
+    "firebase_url": "https://simurgh-75c4e-default-rtdb.firebaseio.com",
+    "project_id": "simurgh-75c4e",
+    "storage_bucket": "simurgh-75c4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622708663283:android:58d641f48e67a38b4aa886",
+        "android_client_info": {
+          "package_name": "com.example.simurgh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5PDQXyZ-_TtCuTQ5bk3UHBSbsRw1RDT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622708663283:android:7d50ffb7fb39abd54aa886",
+        "android_client_info": {
+          "package_name": "com.example.simurghadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5PDQXyZ-_TtCuTQ5bk3UHBSbsRw1RDT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
