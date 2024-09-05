@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
-            android:text="Welcome back,"
+            android:text="Welcome to Simurgh,"
             android:textSize="24sp"
 
             />
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="start"
             android:fontFamily="@font/poppins"
-            android:text="Discover limitless choices in managing\ncommittees efficiently"
+            android:text="Simurgh Your Trusted Technology Partner for\nDigital Transformation"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -129,6 +129,18 @@
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
+
+        <TextView
+            android:layout_margin="8dp"
+            android:id="@+id/btnForgotPassword"
+            android:layout_width="match_parent"
+            android:textAlignment="textEnd"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Forgot Password?"
+
+
+            />
 
     </LinearLayout>
 

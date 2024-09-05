@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +27,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements SliderAdapter.OnSliderButtonClickListener{
 
     private ViewPager2 viewPager2;
     private Adapter adapter;
@@ -46,7 +48,7 @@ public class HomeFragment extends Fragment {
         sliderItems.add(new SliderItem(R.drawable.slider2, "Navigate the future", "AI-Driven\nTransformation"));
         sliderItems.add(new SliderItem(R.drawable.slider3, "Beyond Boundaries", "Pioneering the\nDigital Frontier7"));
 
-        viewPager2.setAdapter(new SliderAdapter(sliderItems));
+        viewPager2.setAdapter(new SliderAdapter(sliderItems,this));
 
         autoSlide();
         databaseReference= FirebaseDatabase.getInstance().getReference("blogs").child("Home");
@@ -99,5 +101,17 @@ public class HomeFragment extends Fragment {
                 handler.post(runnable);
             }
         }, 4000, 4000); // Auto slide every 4 seconds
+    }
+
+    @Override
+    public void onSliderButtonClick() {
+        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, new AboutFragment());
+        transaction.addToBackStack(null); // Optional: Add this transaction to the back stack
+        transaction.commit();
+
+        // Notify the Bottom Navigation
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.nav_about);
     }
 }

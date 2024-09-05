@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -15,9 +17,11 @@ import java.util.List;
 public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder> {
 
     private List<SliderItem> sliderItems;
+    private OnSliderButtonClickListener listener;
 
-    public SliderAdapter(List<SliderItem> sliderItems) {
+    public SliderAdapter(List<SliderItem> sliderItems, OnSliderButtonClickListener listener) {
         this.sliderItems = sliderItems;
+        this.listener = listener;
     }
 
     @NonNull
@@ -34,7 +38,9 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
         holder.titleTextView.setText(sliderItem.getTitle());
         holder.descriptionTextView.setText(sliderItem.getDescription());
         holder.button.setOnClickListener(v -> {
-            // Handle button click
+            if (listener != null) {
+                listener.onSliderButtonClick();
+            }
         });
     }
 
@@ -57,5 +63,12 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
             button = itemView.findViewById(R.id.button);
         }
     }
+
+    public interface OnSliderButtonClickListener {
+        void onSliderButtonClick();
+    }
 }
+
+
+
 
