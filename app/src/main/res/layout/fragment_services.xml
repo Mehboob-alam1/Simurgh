@@ -1,19 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ServicesFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/doctor_cyber_primary">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/services_header_background">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doctor Cyber Services"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold" />
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comprehensive Cybersecurity Solutions"
+            android:textColor="@color/doctor_cyber_light"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/doctor_cyber_secondary"
+        app:tabIndicatorColor="@color/doctor_cyber_highlight"
+        app:tabSelectedTextColor="@color/doctor_cyber_highlight"
+        app:tabTextColor="@color/doctor_cyber_light"
+        app:tabMode="scrollable"
+        app:tabGravity="center"
+        app:tabRippleColor="@color/doctor_cyber_highlight"
+        android:elevation="4dp" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerS"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@color/doctor_cyber_primary" />
 
 </LinearLayout>

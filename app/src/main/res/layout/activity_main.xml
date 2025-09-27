@@ -8,16 +8,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background">
 
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/doctor_cyber_primary"
             android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:titleTextColor="@color/doctor_cyber_highlight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,8 +39,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/bottom_menu"
-            app:itemTextAppearanceActive="@color/purple_200"
-            app:itemTextAppearanceInactive="@color/purple_200"
+            app:itemTextAppearanceActive="@style/BottomNavigationActive"
+            app:itemTextAppearanceInactive="@style/BottomNavigationInactive"
+            app:itemIconTint="@drawable/bottom_nav_selector"
+            app:itemTextColor="@drawable/bottom_nav_selector"
+            android:background="@drawable/bottom_nav_background"
+            android:elevation="8dp"
             android:id="@+id/bottom_navigation"
             app:layout_constraintBottom_toBottomOf="parent" />
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/doctor_cyber_primary"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cyber Hygiene"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elevating Cyber Hygiene, Protecting Futures. Comprehensive cybersecurity training and awareness programs to maintain digital health and prevent threats."
+            android:textColor="@color/doctor_cyber_light"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Key Features:"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Proactive Defense – Ahead of threats with predictive AI technology\n• Tailored Solutions – Customized security strategies for every client\n• Education &amp; Empowerment – Comprehensive training and awareness programs\n• Innovative Approach – Leveraging blockchain, quantum computing, and more\n• Global Compliance – Adhering to international cybersecurity protocols\n• 24/7 Support – Constant vigilance for unwavering protection"
+            android:textColor="@color/doctor_cyber_light"
+            android:textSize="14sp"
+            android:lineSpacingExtra="2dp" />
+
+    </LinearLayout>
+
+</ScrollView>

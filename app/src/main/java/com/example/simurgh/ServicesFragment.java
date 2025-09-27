@@ -32,19 +32,19 @@ public class ServicesFragment extends Fragment {
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
             switch (position) {
                 case 0:
-                    tab.setText("Cyber");
+                    tab.setText("Cyber Hygiene");
                     break;
                 case 1:
-                    tab.setText("Web 3");
+                    tab.setText("Cyber Diet");
                     break;
                 case 2:
-                    tab.setText("XR");
+                    tab.setText("Cyber Study");
                     break;
                 case 3:
-                    tab.setText("IoT");
+                    tab.setText("Cyber Today");
                     break;
                 case 4:
-                    tab.setText("Charity");
+                    tab.setText("Cyber Doctor");
                     break;
             }
         }).attach();

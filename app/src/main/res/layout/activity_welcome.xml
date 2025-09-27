@@ -5,25 +5,33 @@
     android:layout_height="match_parent"
     android:layout_margin="10dp"
     android:orientation="vertical"
+    android:background="@color/doctor_cyber_primary"
     tools:context=".WelcomeActivity">
 
     <TextView
         android:id="@+id/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F1F1F1"
+        android:background="@color/doctor_cyber_secondary"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="@android:color/black" />
+        android:textColor="@color/doctor_cyber_highlight"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp" />
 
     <TextView
         android:id="@+id/signUpPageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F1F1F1"
+        android:background="@color/doctor_cyber_accent"
         android:text="@string/welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black" />
+        android:textColor="@color/doctor_cyber_light"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="12dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"

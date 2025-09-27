@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/doctor_cyber_primary"
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -24,7 +25,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Welcome back "
-            android:textColor="#8066AE"
+            android:textColor="@color/doctor_cyber_highlight"
             android:textSize="16sp" />
 
         <TextView
@@ -35,7 +36,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins_bold"
             android:text=""
-            android:textColor="#8066AE"
+            android:textColor="@color/doctor_cyber_highlight"
             android:textSize="22sp" />
 
         <TextView
@@ -45,7 +46,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Email"
-            android:textColor="@color/black"
+            android:textColor="@color/doctor_cyber_light"
             android:textSize="16sp" />
 
         <TextView
@@ -60,7 +61,7 @@
             android:fontFamily="@font/poppins"
             android:padding="8dp"
             android:text=""
-            android:textColor="#8066AE"
+            android:textColor="@color/doctor_cyber_highlight"
             android:textSize="16sp" />
 
         <TextView
@@ -70,7 +71,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Phone Number"
-            android:textColor="@color/black"
+            android:textColor="@color/doctor_cyber_light"
             android:textSize="16sp" />
 
         <TextView
@@ -84,7 +85,7 @@
             android:fontFamily="@font/poppins"
             android:padding="8dp"
             android:text=""
-            android:textColor="#8066AE"
+            android:textColor="@color/doctor_cyber_highlight"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -142,7 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
-            android:text="Simurgh Always Ready\nto Solve Your Problem"
+            android:text="DrCyber Always Ready\nto Solve Your Problem"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

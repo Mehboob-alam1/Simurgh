@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bottom Navigation Styles -->
+    <style name="BottomNavigationActive">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/doctor_cyber_highlight</item>
+    </style>
+    
+    <style name="BottomNavigationInactive">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/doctor_cyber_light</item>
+    </style>
+    
+    
+</resources>

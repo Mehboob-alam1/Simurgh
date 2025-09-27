@@ -14,12 +14,12 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position) {
-            case 0: return new CyberFragment();
-            case 1: return new Web3Fragment();
-            case 2: return new XRFragment();
-            case 3: return new IOTFragment();
-            case 4: return new CharityFragment();
-            default: return new CyberFragment();
+            case 0: return new CyberHygieneFragment();
+            case 1: return new CyberDietFragment();
+            case 2: return new CyberStudyFragment();
+            case 3: return new CyberTodayFragment();
+            case 4: return new CyberDoctorFragment();
+            default: return new CyberHygieneFragment();
         }
     }
 

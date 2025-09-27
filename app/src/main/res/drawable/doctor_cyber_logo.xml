@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    
+    <!-- Shield Base -->
+    <path
+        android:fillColor="@color/doctor_cyber_highlight"
+        android:pathData="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z" />
+    
+    <!-- Inner Shield -->
+    <path
+        android:fillColor="@color/doctor_cyber_primary"
+        android:pathData="M12,3L5,6.5V11C5,15.5 8.2,19.5 12,20.5C15.8,19.5 19,15.5 19,11V6.5L12,3Z" />
+    
+    <!-- Cyber Symbol -->
+    <path
+        android:fillColor="@color/doctor_cyber_highlight"
+        android:pathData="M12,8L10,10L12,12L14,10L12,8Z" />
+    
+    <!-- Security Lines -->
+    <path
+        android:strokeColor="@color/doctor_cyber_light"
+        android:strokeWidth="1"
+        android:pathData="M8,14L16,14" />
+    <path
+        android:strokeColor="@color/doctor_cyber_light"
+        android:strokeWidth="1"
+        android:pathData="M8,16L16,16" />
+</vector>

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="A verification email has been sent to your email address. Please verify your email."
         android:textSize="16sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/doctor_cyber_light"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 

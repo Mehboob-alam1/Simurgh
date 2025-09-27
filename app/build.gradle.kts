@@ -45,7 +45,6 @@ dependencies {
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
-    implementation(libs.firebase.auth)
     implementation(libs.firebase.inappmessaging.display)
     implementation(libs.firebase.messaging)
     testImplementation(libs.junit)

@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment implements SliderAdapter.OnSliderButt
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
         viewPager2 = view.findViewById(R.id.viewPager);
-        recyclerView= view.findViewById(R.id.homeRecyclerView);
+//        recyclerView= view.findViewById(R.id.homeRecyclerView);
 
         List<SliderItem> sliderItems = new ArrayList<>();
         sliderItems.add(new SliderItem(R.drawable.slider1, "Secure your tomorrow", "Intelligence that\nprotects"));

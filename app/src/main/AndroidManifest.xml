@@ -16,27 +16,6 @@
         android:theme="@style/Theme.Simurgh"
         tools:targetApi="31">
         <activity
-            android:name=".EmailVerificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SuccessActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ForgotPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CreateAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>

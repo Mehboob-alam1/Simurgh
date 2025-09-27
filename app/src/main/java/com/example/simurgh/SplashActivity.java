@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         // Delayed move to the next activity
         new Handler().postDelayed(() -> {
             // Start the main activity
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
 
             // Close the splash activity

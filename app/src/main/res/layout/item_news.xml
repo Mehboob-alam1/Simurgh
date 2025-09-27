@@ -23,7 +23,7 @@
                     android:padding="5dp"
                     android:ellipsize="end"
                     android:maxLines="2"
-                    android:textColor="#8066AE"
+                    android:textColor="@color/doctor_cyber_highlight"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Main heading display here "
                     android:textSize="20sp"
@@ -35,7 +35,7 @@
                         android:layout_height="match_parent"
 
                         android:padding="5dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/doctor_cyber_light"
 
                         android:id="@+id/txtContentItem"
                         android:fontFamily="@font/poppins"
