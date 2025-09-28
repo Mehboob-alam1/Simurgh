@@ -5,12 +5,14 @@
     android:layout_height="match_parent"
     android:background="@color/doctor_cyber_primary"
     tools:context=".AboutFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:padding="12dp"
         android:layout_height="wrap_content">
 
-
+        <!-- Header Image -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -18,51 +20,150 @@
             android:src="@drawable/about"
             android:id="@+id/imgAbout"/>
 
-
+        <!-- Main Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:text="About Doctor Cyber"
             android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
             android:textSize="24sp"
-            android:textColor="@color/doctor_cyber_highlight"
-            />
+            android:textColor="@color/doctor_cyber_highlight"/>
+
+        <!-- Introduction -->
         <TextView
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-
-            android:padding="5dp"
-            android:textColor="@color/doctor_cyber_light"
-            android:lineSpacingMultiplier="1.3"
-            android:letterSpacing="0.05"
-            android:id="@+id/txtContent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:textSize="15sp"
-            android:text="Vision, Mission, and Values: SIMURGH is founded on the principle of progressive innovation – a vision to elevate human potential with AI, a mission to secure the digital ecosystem, and a set of values committed to ethical practice, community enhancement, and pioneering leadership. Our philosophy is grounded in creating a future where technology serves the greater good, enriches lives, and safeguards assets.
+            android:lineSpacingMultiplier="1.3"
+            android:textColor="@color/doctor_cyber_light"
+            android:text="In the digital age, our lives are lived through devices — and every device is a doorway. Behind those doors lie our identities, finances, relationships, businesses, and even nations. But most people — and entire sectors — remain unprepared to protect them.
 
-Blockchain and Web3: Ensuring trust in digital transactions with immutable AI-powered security.
+Doctor Cyber exists to change that.
 
-Cyber Security: Anticipating cyber threats with AI to protect our interconnected world.
+We are the Cyber Champion — built to serve not just systems, but the people who rely on them. From individuals and families to corporations and governments, we stand at the intersection of security, education, behavior, and trust.
 
-Internet of Things (IoT): Integrating AI to create intelligent, efficient, and responsive IoT networks.
+We don’t just teach cybersecurity — we make it real, relevant, and routine.
 
-Extended Reality (XR) and Metaverse: Redefining reality, offering AI-powered immersive experiences.
+We don’t wait for breaches — we build resilience.
 
-Philanthropy and Humanitarian Projects: Utilizing AI to orchestrate collaborative efforts for global challenges.
+And above all, we begin with one simple belief:
 
-Digital Content Production: Creating AI-enhanced digital and spatial content for education and entertainment, specializing in digital media like podcasts, TV shows, and more across various tech fields."/>
+Cyber Hygiene Matters." />
+
+        <!-- Mission Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="20sp"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:layout_marginTop="16dp"
+            android:text="Our Mission"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textSize="15sp"
+            android:lineSpacingMultiplier="1.3"
+            android:textColor="@color/doctor_cyber_light"
+            android:text="To create a cyber-conscious world — one where individuals, communities, businesses, and institutions are equipped with the knowledge, tools, and habits to defend themselves and each other.
+
+We carry out this mission by:
+• Bringing cyber awareness to the front lines of everyday life
+• Embedding protective habits into the hands of millions
+• Supporting organizations across sectors with people-first security strategies
+• Closing the gap between digital complexity and human clarity
+• Leading with care, not fear — and empowering through action, not anxiety" />
+
+        <!-- Vision Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="20sp"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:layout_marginTop="16dp"
+            android:text="Our Vision"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textSize="15sp"
+            android:lineSpacingMultiplier="1.3"
+            android:textColor="@color/doctor_cyber_light"
+            android:text="We envision a world where:
+• Cybersecurity is second nature, like washing your hands or locking your door
+• Every person is a digital defender, equipped with confidence and clarity
+• Every organization is proactive, building cultures of security, not just compliance
+• Communities and governments see cybersecurity as a shared civic value
+• Digital peace of mind is available to all — not just the privileged or the prepared
+
+In that world, cyber hygiene is culture.
+Security is not an add-on — it’s a human right.
+And the most powerful firewall is knowledge made habitual." />
+
+        <!-- Ethos Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="20sp"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:layout_marginTop="16dp"
+            android:text="Our Ethos"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textSize="15sp"
+            android:lineSpacingMultiplier="1.3"
+            android:textColor="@color/doctor_cyber_light"
+            android:text="We Champion Cyber Hygiene
+Real protection starts with daily habits. We guide people to practice cybersecurity — not just understand it.
+
+We Empower Every Digital Citizen
+From students to seniors, we make security accessible — because no one should be left behind in the digital age.
+
+We Protect the Human Experience
+Cybersecurity isn’t just about systems — it’s about peace, privacy, and dignity.
+
+We Support All Sectors
+Whether public or private, small or large, every organization deserves a path to cyber strength that starts with its people.
+
+We Lead with Purpose
+In a landscape of growing threats and digital fatigue, we offer clarity, connection, and trust." />
+
+        <!-- Why Doctor Cyber Matters Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="20sp"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:layout_marginTop="16dp"
+            android:text="Why Doctor Cyber Matters"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textSize="15sp"
+            android:lineSpacingMultiplier="1.3"
+            android:textColor="@color/doctor_cyber_light"
+            android:text="Because the threats are real — and rising.
+Because most breaches begin with human error — not software flaws.
+Because children, families, small businesses, and governments all need guidance.
+Because Cyber Hygiene is the new seatbelt — and no one should live online without it.
+
+We’re not just protecting networks.
+We’re building a stronger society.
+We are Doctor Cyber —
+Because Cyber Hygiene Matters." />
 
     </LinearLayout>
-
-
-
-
-
-
-
-
-
 </ScrollView>

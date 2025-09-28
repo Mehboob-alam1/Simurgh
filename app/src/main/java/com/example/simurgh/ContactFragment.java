@@ -48,8 +48,8 @@ public class ContactFragment extends Fragment {
 
 
         imgNewsContact = view.findViewById(R.id.imgNewsContact);
-        txtMainHeadingContact = view.findViewById(R.id.txtMainHeadingContact);
-        txtContentContact = view.findViewById(R.id.txtContentContact);
+//        txtMainHeadingContact = view.findViewById(R.id.txtMainHeadingContact);
+//        txtContentContact = view.findViewById(R.id.txtContentContact);
 
         etFullName = view.findViewById(R.id.etFullName);
         etEmailAddress = view.findViewById(R.id.etEmailContact);
@@ -69,30 +69,30 @@ public class ContactFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference("blogs").child("Contact");
 
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if (snapshot.exists()) {
-                    for (DataSnapshot snap : snapshot.getChildren()) {
-                        blog = snap.getValue(Blog.class);
-
-
-                    }
-                    Glide.with(requireContext())
-                            .load(blog.getImageUrl())
-                            .placeholder(R.drawable.simuico)
-                            .into(imgNewsContact);
-                    txtMainHeadingContact.setText(blog.getTitle());
-                    txtContentContact.setText(blog.getDescription());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                if (snapshot.exists()) {
+//                    for (DataSnapshot snap : snapshot.getChildren()) {
+//                        blog = snap.getValue(Blog.class);
+//
+//
+//                    }
+//                    Glide.with(requireContext())
+//                            .load(blog.getImageUrl())
+//                            .placeholder(R.drawable.simuico)
+//                            .into(imgNewsContact);
+//                    txtMainHeadingContact.setText(blog.getTitle());
+//                    txtContentContact.setText(blog.getDescription());
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
 
         readEmail();
