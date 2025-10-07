@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.simurgh"
+    namespace = "com.example.drcyber"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.simurgh"
+        applicationId = "com.example.drcyber"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -47,6 +47,13 @@ dependencies {
     implementation(libs.firebase.storage)
     implementation(libs.firebase.inappmessaging.display)
     implementation(libs.firebase.messaging)
+    
+    // Firebase Auth for admin/user authentication
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+    
+    // Gson for JSON parsing
+    implementation("com.google.code.gson:gson:2.10.1")
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
