@@ -97,11 +97,18 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.dismiss();
                 if (snapshot.exists()) {
                     UserRole userRole = snapshot.getValue(UserRole.class);
+                    
+                    // DEBUG: Show user role
+                    String roleDebug = (userRole != null) ? userRole.getRole() : "null";
+                    Toast.makeText(LoginActivity.this, "User Role: " + roleDebug, Toast.LENGTH_LONG).show();
+                    
                     if (userRole != null && userRole.isAdmin()) {
                         // Redirect to Admin Panel
+                        Toast.makeText(LoginActivity.this, "Going to ADMIN PANEL", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(LoginActivity.this, AdminPanelActivity.class));
                     } else {
                         // Redirect to Main App
+                        Toast.makeText(LoginActivity.this, "Going to USER MODE", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }
                     finish();
