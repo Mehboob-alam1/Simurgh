@@ -1,41 +1,22 @@
 {
   "project_info": {
-    "project_number": "622708663283",
-    "firebase_url": "https://simurgh-75c4e-default-rtdb.firebaseio.com",
-    "project_id": "simurgh-75c4e",
-    "storage_bucket": "simurgh-75c4e.appspot.com"
+    "project_number": "1073632260065",
+    "firebase_url": "https://drcyber-140ed-default-rtdb.firebaseio.com",
+    "project_id": "drcyber-140ed",
+    "storage_bucket": "drcyber-140ed.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:622708663283:android:58d641f48e67a38b4aa886",
+        "mobilesdk_app_id": "1:1073632260065:android:62f1a0a907d0d9e0682ca0",
         "android_client_info": {
-          "package_name": "com.example.simurgh"
+          "package_name": "com.example.drcyber"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA5PDQXyZ-_TtCuTQ5bk3UHBSbsRw1RDT8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:622708663283:android:7d50ffb7fb39abd54aa886",
-        "android_client_info": {
-          "package_name": "com.example.simurghadmin"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA5PDQXyZ-_TtCuTQ5bk3UHBSbsRw1RDT8"
+          "current_key": "AIzaSyCzXfpL5o61oG6Vu1s5Orj0pAFozWJ6spg"
         }
       ],
       "services": {

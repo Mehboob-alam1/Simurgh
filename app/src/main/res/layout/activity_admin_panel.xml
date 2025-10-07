@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/doctor_cyber_primary">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/doctor_cyber_secondary"
+        android:elevation="4dp"
+        app:titleTextColor="@color/doctor_cyber_highlight" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add New Post"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/doctor_cyber_highlight"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginBottom="16dp" />
+
+            <Spinner
+                android:id="@+id/firstSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_back"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <Spinner
+                android:id="@+id/secondSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_back"
+                android:padding="12dp"
+                android:visibility="gone"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Post Title"
+                android:textColorHint="@color/doctor_cyber_light"
+                android:textColor="@color/doctor_cyber_light"
+                android:background="@drawable/edit_text_back"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etDesc"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:hint="Description"
+                android:textColorHint="@color/doctor_cyber_light"
+                android:textColor="@color/doctor_cyber_light"
+                android:background="@drawable/edit_text_back"
+                android:padding="12dp"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:layout_marginBottom="12dp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/simuico"
+                android:scaleType="centerCrop"
+                android:background="@drawable/edit_text_back"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnAddPost"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Add Post"
+                android:textStyle="bold"
+                android:background="@drawable/button_filled"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnManagePost"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Manage Posts"
+                android:textStyle="bold"
+                android:background="@drawable/button_filled"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnAddEmail"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Set Contact Email"
+                android:textStyle="bold"
+                android:background="@drawable/button_filled"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Logout"
+                android:textStyle="bold"
+                android:background="@drawable/button_filled" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
