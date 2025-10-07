@@ -3,6 +3,7 @@ package com.example.drcyber;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
     private Button btnLogin;
-    private TextView tvSignUp, tvSkipLogin;
+    private TextView tvSignUp;
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
     private ProgressDialog progressDialog;
@@ -34,14 +35,20 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuth = FirebaseAuth.getInstance();
-        usersRef = FirebaseDatabase.getInstance().getReference("users");
+        // Initialize Firebase with error handling
+        try {
+            FirebaseHelper.initializeFirebase(this);
+            mAuth = FirebaseAuth.getInstance();
+            usersRef = FirebaseDatabase.getInstance().getReference("users");
+        } catch (Exception e) {
+            Toast.makeText(this, "Firebase initialization failed. Please restart the app.", Toast.LENGTH_LONG).show();
+            Log.e("LoginActivity", "Firebase init error: " + e.getMessage());
+        }
 
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         tvSignUp = findViewById(R.id.tvSignUp);
-        tvSkipLogin = findViewById(R.id.tvSkipLogin);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Logging in...");
@@ -51,79 +58,107 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
         });
         
-        tvSkipLogin.setOnClickListener(v -> {
-            // Allow guest access to main app
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
-        });
+        // Remove guest login functionality
     }
 
     private void loginUser() {
-        String email = etEmail.getText().toString().trim();
-        String password = etPassword.getText().toString().trim();
+        try {
+            String email = etEmail.getText().toString().trim();
+            String password = etPassword.getText().toString().trim();
 
-        if (email.isEmpty()) {
-            etEmail.setError("Email is required");
-            etEmail.requestFocus();
-            return;
-        }
+            // Input validation
+            if (email.isEmpty()) {
+                etEmail.setError("Email is required");
+                etEmail.requestFocus();
+                return;
+            }
 
-        if (password.isEmpty()) {
-            etPassword.setError("Password is required");
-            etPassword.requestFocus();
-            return;
-        }
+            if (password.isEmpty()) {
+                etPassword.setError("Password is required");
+                etPassword.requestFocus();
+                return;
+            }
 
-        progressDialog.show();
+            // Email format validation
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                etEmail.setError("Please enter a valid email address");
+                etEmail.requestFocus();
+                return;
+            }
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        if (user != null) {
-                            checkUserRole(user.getUid());
-                        }
-                    } else {
-                        progressDialog.dismiss();
-                        Toast.makeText(LoginActivity.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
-    private void checkUserRole(String userId) {
-        usersRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                progressDialog.dismiss();
-                if (snapshot.exists()) {
-                    UserRole userRole = snapshot.getValue(UserRole.class);
-                    if (userRole != null && userRole.isAdmin()) {
-                        // Redirect to Admin Panel
-                        startActivity(new Intent(LoginActivity.this, AdminPanelActivity.class));
-                    } else {
-                        // Redirect to Main App
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    }
-                    finish();
-                } else {
-                    Toast.makeText(LoginActivity.this, "User role not found", Toast.LENGTH_SHORT).show();
+            // Simple admin check - no Firebase role checking needed
+            if (email.equals("admin@drcyber.com") && password.equals("admin")) {
+                if (progressDialog.isShowing()) {
+                    progressDialog.dismiss();
                 }
+                Toast.makeText(LoginActivity.this, "Admin login successful! Redirecting to Admin Panel", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(LoginActivity.this, AdminPanelActivity.class));
+                finish();
+                return;
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                progressDialog.dismiss();
-                Toast.makeText(LoginActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            // Show progress dialog for regular users
+            if (!progressDialog.isShowing()) {
+                progressDialog.show();
             }
-        });
+
+            // Firebase authentication for regular users
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        try {
+                            if (progressDialog.isShowing()) {
+                                progressDialog.dismiss();
+                            }
+                            
+                            if (task.isSuccessful()) {
+                                // Regular user - go to Main App
+                                Toast.makeText(LoginActivity.this, "Login successful! Redirecting to Main App", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
+                            } else {
+                                // Handle login failure
+                                String errorMessage = "Login failed";
+                                if (task.getException() != null && task.getException().getMessage() != null) {
+                                    errorMessage += ": " + task.getException().getMessage();
+                                }
+                                Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Toast.makeText(LoginActivity.this, "An error occurred during login", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        try {
+                            if (progressDialog.isShowing()) {
+                                progressDialog.dismiss();
+                            }
+                            Toast.makeText(LoginActivity.this, "Login failed: " + (e.getMessage() != null ? e.getMessage() : "Unknown error"), Toast.LENGTH_SHORT).show();
+                        } catch (Exception ex) {
+                            Toast.makeText(LoginActivity.this, "An error occurred", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    
+        } catch (Exception e) {
+            if (progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+            Toast.makeText(LoginActivity.this, "An unexpected error occurred", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            checkUserRole(currentUser.getUid());
+        try {
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            if (currentUser != null) {
+                // If user is already logged in, go to Main App
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
+            }
+        } catch (Exception e) {
+            // If there's any error checking current user, just stay on login screen
+            Toast.makeText(LoginActivity.this, "Please login again", Toast.LENGTH_SHORT).show();
         }
     }
 }

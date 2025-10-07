@@ -45,15 +45,10 @@ dependencies {
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
+    implementation(libs.firebase.auth)
     implementation(libs.firebase.inappmessaging.display)
     implementation(libs.firebase.messaging)
-    
-    // Firebase Auth for admin/user authentication
-    implementation("com.google.firebase:firebase-auth:22.3.0")
-    
-    // Gson for JSON parsing
-    implementation("com.google.code.gson:gson:2.10.1")
-    
+    implementation(libs.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

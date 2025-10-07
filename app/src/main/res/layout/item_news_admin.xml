@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/simuico"
+            android:src="@drawable/logocyber"
             android:layout_marginBottom="12dp" />
 
         <TextView

@@ -49,6 +49,23 @@
             android:textSize="14sp"
             android:lineSpacingExtra="2dp" />
 
+        <!-- Dynamic Content from Firebase -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latest Updates"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cyberStudyRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
     </LinearLayout>
 
 </ScrollView>

@@ -1,27 +1,37 @@
 {
   "project_info": {
-    "project_number": "1073632260065",
-    "firebase_url": "https://drcyber-140ed-default-rtdb.firebaseio.com",
-    "project_id": "drcyber-140ed",
-    "storage_bucket": "drcyber-140ed.firebasestorage.app"
+    "project_number": "114764797676",
+    "firebase_url": "https://hunza-bykea-c0ca9-default-rtdb.firebaseio.com",
+    "project_id": "hunza-bykea-c0ca9",
+    "storage_bucket": "hunza-bykea-c0ca9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1073632260065:android:62f1a0a907d0d9e0682ca0",
+        "mobilesdk_app_id": "1:114764797676:android:906ea0dafe01544b0ef7c9",
         "android_client_info": {
           "package_name": "com.example.drcyber"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "114764797676-sik0r0pm6lgopt1da8f20gj7ocqb7hed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCzXfpL5o61oG6Vu1s5Orj0pAFozWJ6spg"
+          "current_key": "AIzaSyAS1I-4GxM9yY_oEQXmL_iVtmmdpADH9O8"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114764797676-iimanrcrapt7a5shji55ki7hhh9ahgl2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

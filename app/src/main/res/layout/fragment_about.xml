@@ -160,10 +160,27 @@ Because most breaches begin with human error — not software flaws.
 Because children, families, small businesses, and governments all need guidance.
 Because Cyber Hygiene is the new seatbelt — and no one should live online without it.
 
-We’re not just protecting networks.
-We’re building a stronger society.
+We're not just protecting networks.
+We're building a stronger society.
 We are Doctor Cyber —
 Because Cyber Hygiene Matters." />
+
+        <!-- Dynamic Content from Firebase -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="20sp"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="Latest Updates"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/aboutRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
 
     </LinearLayout>
 </ScrollView>

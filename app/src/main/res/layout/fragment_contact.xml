@@ -358,5 +358,22 @@
                 android:padding="8dp" />
         </LinearLayout>
 
+        <!-- Dynamic Content from Firebase -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="18sp"
+            android:textColor="@color/doctor_cyber_highlight"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="Contact Updates"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contactRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
     </LinearLayout>
 </ScrollView>

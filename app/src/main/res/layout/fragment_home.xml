@@ -10,43 +10,24 @@
     tools:context=".HomeFragment" >
 
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginTop="8dp" />
 
-
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/homeRecyclerView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent" />-->
-
-
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/doctor_cyber_primary"
-            tools:context=".HomeFragment">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Hero Section -->
+            <!-- Hero Section -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -315,7 +296,7 @@
 
                 </LinearLayout>
 
-                <!-- Expertise Section -->
+            <!-- Dynamic Content from Firebase -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -328,280 +309,25 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Expertise Meets Innovation"
+                    android:text="Latest Updates"
                         android:textColor="@color/doctor_cyber_highlight"
                         android:textSize="22sp"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins_bold"
                         android:gravity="center"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Integrity and Excellence in Cybersecurity"
-                        android:textColor="@color/doctor_cyber_light"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:gravity="center"
                         android:layout_marginBottom="16dp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="At the core of Doctor Cyber is a relentless pursuit of digital protection. Our foundation of trust, cutting-edge technology, and a deep understanding of today's cyber landscape fuels our mission."
-                        android:textColor="@color/doctor_cyber_light"
-                        android:textSize="16sp"
-                        android:lineSpacingExtra="4dp"
-                        android:layout_marginBottom="20dp" />
-
-                    <!-- Features List -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="• Proactive Defense – Ahead of threats with predictive AI technology"
-                            android:textColor="@color/doctor_cyber_light"
-                            android:textSize="14sp"
-                            android:layout_marginBottom="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="• Tailored Solutions – Customized security strategies for every client"
-                            android:textColor="@color/doctor_cyber_light"
-                            android:textSize="14sp"
-                            android:layout_marginBottom="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="• Education &amp; Empowerment – Comprehensive training and awareness programs"
-                            android:textColor="@color/doctor_cyber_light"
-                            android:textSize="14sp"
-                            android:layout_marginBottom="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="• Innovative Approach – Leveraging blockchain, quantum computing, and more"
-                            android:textColor="@color/doctor_cyber_light"
-                            android:textSize="14sp"
-                            android:layout_marginBottom="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="• Global Compliance – Adhering to international cybersecurity protocols"
-                            android:textColor="@color/doctor_cyber_light"
-                            android:textSize="14sp"
-                            android:layout_marginBottom="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="• 24/7 Support – Constant vigilance for unwavering protection"
-                            android:textColor="@color/doctor_cyber_light"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <!-- Process Section -->
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/homeRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/doctor_cyber_secondary"
-                    android:padding="20dp"
-                    android:layout_margin="16dp"
-                    android:elevation="4dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Precision in Every Step"
-                        android:textColor="@color/doctor_cyber_highlight"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/poppins_bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tailored Cybersecurity: Our Unique Approach"
-                        android:textColor="@color/doctor_cyber_light"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="16dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Our process begins with understanding your unique digital environment, followed by crafting a strategic plan that integrates the latest in AI, blockchain, and quantum computing."
-                        android:textColor="@color/doctor_cyber_light"
-                        android:textSize="16sp"
-                        android:lineSpacingExtra="4dp"
-                        android:layout_marginBottom="20dp" />
-
-                    <!-- Process Steps -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginBottom="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1"
-                                android:textColor="@color/doctor_cyber_highlight"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:layout_marginEnd="12dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Initial Consultation - Understanding Your Needs"
-                                android:textColor="@color/doctor_cyber_light"
-                                android:textSize="16sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginBottom="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2"
-                                android:textColor="@color/doctor_cyber_highlight"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:layout_marginEnd="12dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Strategic Assessment - Evaluating Your Cyber Posture"
-                                android:textColor="@color/doctor_cyber_light"
-                                android:textSize="16sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginBottom="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="3"
-                                android:textColor="@color/doctor_cyber_highlight"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:layout_marginEnd="12dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Customized Planning - Designing Your Defense"
-                                android:textColor="@color/doctor_cyber_light"
-                                android:textSize="16sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="4"
-                                android:textColor="@color/doctor_cyber_highlight"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:layout_marginEnd="12dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Ongoing Optimization - Securing Your Future"
-                                android:textColor="@color/doctor_cyber_light"
-                                android:textSize="16sp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <!-- Contact Section -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/hero_background"
-                    android:padding="24dp"
-                    android:layout_margin="16dp"
-                    android:elevation="8dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Contact With Us"
-                        android:textColor="@color/doctor_cyber_highlight"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/poppins_bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Drop Us a Line"
-                        android:textColor="@color/doctor_cyber_light"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginBottom="16dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Send Your Message"
-                        android:textColor="@color/doctor_cyber_light"
-                        android:textSize="16sp"
-                        android:gravity="center" />
+                    android:nestedScrollingEnabled="false" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
         </ScrollView>
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

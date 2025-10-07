@@ -51,7 +51,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
         holder.txtContent.setText(blog.getDescription());
         Glide.with(context)
                 .load(blog.getImageUrl())
-                .placeholder(R.drawable.simuico)
+                .placeholder(R.drawable.logocyber)
                 .into(holder.imgNews);
 
         // Handle the click events for the buttons

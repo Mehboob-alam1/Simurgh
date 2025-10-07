@@ -139,87 +139,151 @@ public class AdminPanelActivity extends AppCompatActivity {
     }
 
     private void uploadData() {
-        final String title = etTitle.getText().toString().trim();
-        final String description = etDesc.getText().toString().trim();
+        try {
+            final String title = etTitle.getText().toString().trim();
+            final String description = etDesc.getText().toString().trim();
 
-        if (title.isEmpty()) {
-            etTitle.setError("Title is required");
-            etTitle.requestFocus();
-            return;
-        }
+            // Input validation
+            if (title.isEmpty()) {
+                etTitle.setError("Title is required");
+                etTitle.requestFocus();
+                return;
+            }
 
-        if (description.isEmpty()) {
-            etDesc.setError("Description is required");
-            etDesc.requestFocus();
-            return;
-        }
+            if (description.isEmpty()) {
+                etDesc.setError("Description is required");
+                etDesc.requestFocus();
+                return;
+            }
 
-        if (imageUri == null) {
-            Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show();
-            return;
-        }
+            if (imageUri == null) {
+                Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-        if (firstSpinner.getSelectedItem() == null) {
-            Toast.makeText(this, "Please select the category to add a post", Toast.LENGTH_SHORT).show();
-            return;
-        }
+            if (firstSpinner.getSelectedItem() == null) {
+                Toast.makeText(this, "Please select the category to add a post", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-        if (firstSpinner.getSelectedItem().toString().equals("Services") && secondSpinner.getSelectedItem() == null) {
-            Toast.makeText(this, "Please select sub category for services", Toast.LENGTH_SHORT).show();
-            return;
-        }
+            if (firstSpinner.getSelectedItem().toString().equals("Services") && secondSpinner.getSelectedItem() == null) {
+                Toast.makeText(this, "Please select sub category for services", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-        dialog = new ProgressDialog(this);
-        dialog.setMessage("Please wait....");
-        dialog.show();
+            // Show progress dialog
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
+            }
+            dialog = new ProgressDialog(this);
+            dialog.setMessage("Uploading image...");
+            dialog.setCancelable(false);
+            dialog.show();
 
-        String pushId = UUID.randomUUID().toString();
-        final StorageReference fileReference = storageReference.child(System.currentTimeMillis() + ".jpg");
+            String pushId = UUID.randomUUID().toString();
+            final StorageReference fileReference = storageReference.child(System.currentTimeMillis() + ".jpg");
 
-        fileReference.putFile(imageUri)
-                .addOnSuccessListener(taskSnapshot -> fileReference.getDownloadUrl().addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Uri downloadUri = task.getResult();
+            // Upload image to Firebase Storage
+            fileReference.putFile(imageUri)
+                    .addOnSuccessListener(taskSnapshot -> {
+                        // Image uploaded successfully, now get download URL
+                        fileReference.getDownloadUrl()
+                                .addOnCompleteListener(urlTask -> {
+                                    try {
+                                        if (urlTask.isSuccessful()) {
+                                            Uri downloadUri = urlTask.getResult();
+                                            if (downloadUri != null) {
+                                                // Update progress message
+                                                dialog.setMessage("Saving to database...");
+                                                
+                                                // Create blog object
+                                                Blog blog = new Blog(title, description, downloadUri.toString(), pushId, firstSpinner.getSelectedItem().toString());
 
-                        Blog blog = new Blog(title, description, downloadUri.toString(), pushId, firstSpinner.getSelectedItem().toString());
+                                                // Save to Firebase Realtime Database
+                                                DatabaseReference blogRef;
+                                                if (secondSpinner.getSelectedItem() != null) {
+                                                    // Services with sub-category
+                                                    blogRef = databaseReference.child("blogs")
+                                                            .child(firstSpinner.getSelectedItem().toString())
+                                                            .child(secondSpinner.getSelectedItem().toString())
+                                                            .child(pushId);
+                                                } else {
+                                                    // Regular categories (Home, About, Contact)
+                                                    blogRef = databaseReference.child("blogs")
+                                                            .child(firstSpinner.getSelectedItem().toString())
+                                                            .child(pushId);
+                                                }
 
-                        if (secondSpinner.getSelectedItem() != null) {
-                            databaseReference.child("blogs").child(firstSpinner.getSelectedItem().toString()).child(secondSpinner.getSelectedItem().toString()).child(pushId).setValue(blog)
-                                    .addOnCompleteListener(task1 -> {
-                                        if (task1.isSuccessful()) {
-                                            Toast.makeText(AdminPanelActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
-                                            clearFields();
+                                                blogRef.setValue(blog)
+                                                        .addOnSuccessListener(aVoid -> {
+                                                            dialog.dismiss();
+                                                            Toast.makeText(AdminPanelActivity.this, "Post uploaded successfully!", Toast.LENGTH_SHORT).show();
+                                                            clearFields();
+                                                        })
+                                                        .addOnFailureListener(e -> {
+                                                            dialog.dismiss();
+                                                            String errorMsg = "Failed to save post data";
+                                                            if (e.getMessage() != null) {
+                                                                errorMsg += ": " + e.getMessage();
+                                                            }
+                                                            Toast.makeText(AdminPanelActivity.this, errorMsg, Toast.LENGTH_LONG).show();
+                                                        });
+                                            } else {
+                                                dialog.dismiss();
+                                                Toast.makeText(AdminPanelActivity.this, "Failed to get image URL", Toast.LENGTH_SHORT).show();
+                                            }
                                         } else {
                                             dialog.dismiss();
-                                            Toast.makeText(AdminPanelActivity.this, "Upload failed", Toast.LENGTH_SHORT).show();
+                                            String errorMsg = "Failed to get image URL";
+                                            if (urlTask.getException() != null && urlTask.getException().getMessage() != null) {
+                                                errorMsg += ": " + urlTask.getException().getMessage();
+                                            }
+                                            Toast.makeText(AdminPanelActivity.this, errorMsg, Toast.LENGTH_LONG).show();
                                         }
-                                    });
-                        } else {
-                            databaseReference.child("blogs").child(firstSpinner.getSelectedItem().toString()).child(pushId).setValue(blog)
-                                    .addOnCompleteListener(task1 -> {
-                                        if (task1.isSuccessful()) {
-                                            Toast.makeText(AdminPanelActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
-                                            clearFields();
-                                        } else {
-                                            dialog.dismiss();
-                                            Toast.makeText(AdminPanelActivity.this, "Upload failed", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+                                    } catch (Exception e) {
+                                        dialog.dismiss();
+                                        Toast.makeText(AdminPanelActivity.this, "Error processing image URL", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    })
+                    .addOnFailureListener(e -> {
+                        dialog.dismiss();
+                        String errorMsg = "Failed to upload image";
+                        if (e.getMessage() != null) {
+                            errorMsg += ": " + e.getMessage();
                         }
-                    }
-                }))
-                .addOnFailureListener(e -> {
-                    dialog.dismiss();
-                    Toast.makeText(AdminPanelActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
+                        Toast.makeText(AdminPanelActivity.this, errorMsg, Toast.LENGTH_LONG).show();
+                    });
+                    
+        } catch (Exception e) {
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
+            }
+            Toast.makeText(this, "An unexpected error occurred", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void clearFields() {
-        etDesc.setText("");
-        etTitle.setText("");
-        imageView.setImageURI(null);
-        imageUri = null;
-        dialog.dismiss();
+        try {
+            etDesc.setText("");
+            etTitle.setText("");
+            imageView.setImageURI(null);
+            imageUri = null;
+            
+            // Reset spinners to first item
+            firstSpinner.setSelection(0);
+            secondSpinner.setVisibility(View.GONE);
+            
+            // Dismiss dialog safely
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
+            }
+        } catch (Exception e) {
+            // Handle any errors in clearing fields
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
+            }
+        }
     }
 }
 

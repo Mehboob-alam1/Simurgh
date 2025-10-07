@@ -17,4 +17,7 @@
     <string name="enterEmailId">Enter the registered Email ID</string>
     <string name="reset_password">Reset Password</string>
     <string name="user_domain_com">user@domain.com</string>
+    
+    <!-- Firebase Notification Channel -->
+    <string name="default_notification_channel_id">default_channel</string>
 </resources>
