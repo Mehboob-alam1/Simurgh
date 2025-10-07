@@ -15,18 +15,60 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Simurgh"
         tools:targetApi="31">
+        
+        <!-- Login Activity as Launcher -->
         <activity
-            android:name=".SplashActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Sign Up Activity -->
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        
+        <!-- Admin Panel Activity -->
+        <activity
+            android:name=".AdminPanelActivity"
+            android:exported="false" />
+        
+        <!-- Manage Post Activity -->
+        <activity
+            android:name=".ManagePostActivity"
+            android:exported="false"
+            android:parentActivityName=".AdminPanelActivity" />
+        
+        <!-- Services Blog Activity -->
+        <activity
+            android:name=".ServicesBlogActivity"
+            android:exported="false"
+            android:parentActivityName=".ManagePostActivity" />
+        
+        <!-- Edit Post Activity -->
+        <activity
+            android:name=".EditPostActivity"
+            android:exported="false"
+            android:parentActivityName=".ServicesBlogActivity" />
+        
+        <!-- Add Email Activity -->
+        <activity
+            android:name=".AddEmailActivity"
+            android:exported="false"
+            android:parentActivityName=".AdminPanelActivity" />
+        
+        <!-- Splash Activity -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
+        
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"
